@@ -1,5 +1,4 @@
 import pytest
-
 from api.models import Comment
 
 

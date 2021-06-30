@@ -4,15 +4,22 @@ from .models import Comment, Follow, Group, Post, User
 
 
 class PostSerializer(serializers.ModelSerializer):
-    author = serializers.ReadOnlyField(source='author.username')
+    author = serializers.SlugRelatedField(
+        read_only=True,
+        slug_field='username'
+    )
 
     class Meta:
         fields = ('id', 'text', 'author', 'pub_date', 'group')
+        read_only_fields = ('post',)
         model = Post
 
 
 class CommentSerializer(serializers.ModelSerializer):
-    author = serializers.ReadOnlyField(source='author.username')
+    author = serializers.SlugRelatedField(
+        read_only=True,
+        slug_field='username'
+    )
 
     class Meta:
         fields = ('id', 'author', 'post', 'text', 'created',)
@@ -27,7 +34,10 @@ class GroupSerializer(serializers.ModelSerializer):
 
 
 class FollowSerializer(serializers.ModelSerializer):
-    user = serializers.ReadOnlyField(source='user.username')
+    user = serializers.SlugRelatedField(
+        read_only=True,
+        slug_field='username'
+    )
     following = serializers.SlugRelatedField(
         slug_field='username',
         queryset=User.objects.all()
@@ -37,15 +47,15 @@ class FollowSerializer(serializers.ModelSerializer):
         model = Follow
         fields = ('user', 'following',)
 
-    def validate(self, data):
+    def validate_following(self, data):
         user = self.context['request'].user
-        if user == data['following']:
+        if user == data:
             raise serializers.ValidationError(
                 'Нельзя подписаться на самого себя!'
             )
         if Follow.objects.filter(
             user__username=user,
-            following__username=data['following']
+            following__username=data
         ).exists():
             raise serializers.ValidationError(
                 'Подписка на данного автора уже существует!'

@@ -27,9 +27,13 @@
     git clone https://github.com/Kutaraev/api_final_yatube.git
 ```
 2. Создать виртуальное окружение:
+```
     python -m venv venv
-3. Активировать виртуальное окружение
-(Команда source venv/scripts/activate)
+```
+3. Активировать виртуальное окружение:
+```
+    source venv/scripts/activate
+```
 4. Установить зависимости из requirements.txt
 (команда "pip install -r requirements.txt ")
 5. Запустить сервер

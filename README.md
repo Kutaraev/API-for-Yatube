@@ -40,7 +40,7 @@ pip install -r requirements.txt
 ```
 5. Запустить сервер
 ```
-команда python manage.py runseerver
+python manage.py runserver
 ```
 
 ## Примеры

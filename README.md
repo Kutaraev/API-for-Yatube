@@ -22,10 +22,10 @@
 
 ## Установка
 
-1. Клонировать репозиторий
+1. Клонировать репозиторий:
     git clone https://github.com/Kutaraev/api_final_yatube.git
-2. Создать виртуальное окружение
-(Команда python -m venv venv)
+2. Создать виртуальное окружение:
+    python -m venv venv
 3. Активировать виртуальное окружение
 (Команда source venv/scripts/activate)
 4. Установить зависимости из requirements.txt

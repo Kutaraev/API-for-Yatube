@@ -1,5 +1,5 @@
 # api_final
-Проект "API для Yatube"
+API для взаимодействия с социальной сетью [Yatube](https://github.com/Kutaraev/api_yatube.git)
 
 ## Описание
 Данный проект представляет собой API для проекта "Yatube",

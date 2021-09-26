@@ -35,9 +35,13 @@
     source venv/scripts/activate
 ```
 4. Установить зависимости из requirements.txt
-(команда "pip install -r requirements.txt ")
+```
+pip install -r requirements.txt
+```
 5. Запустить сервер
-(команда python manage.py runseerver) 
+```
+команда python manage.py runseerver
+```
 
 ## Примеры
 
